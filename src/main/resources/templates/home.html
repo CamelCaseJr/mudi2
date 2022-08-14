@@ -5,17 +5,19 @@
     <title>Title</title>
 </head>
 <body>
-<div th:each="pedido : ${pedidos}">
-    <div th:text="${pedido.nome}">Nome do Produto</div>
-    <div>Valor:<span th:text="${pedido.valor}"></span></div>
-    <div>Data da entrega:<span th:text="${pedido.data}"></span></div>
+<div th:each="produto : ${produtos}">
+    <div th:text="${produto.nome}">Nome do Produto</div>
+    <div>Valor:<span th:text="${produto.valor}"></span></div>
+
+    <div> Produto</div>
+    <div> <textarea th:text="${produto.urlProduto}">  </textarea></div>
 
     <div>Descrição</div>
     <div>
-        <textarea th:text="${pedido.descricao}">descrição do pedido</textarea>
+        <textarea th:text="${produto.descricao}">descrição do pedido</textarea>
     </div>
     <div>
-        <img th:src= "${pedido.urlimagem}" src="">
+        <img th:src= "${produto.urlImagem}" src="">
     </div>
 
 </div>

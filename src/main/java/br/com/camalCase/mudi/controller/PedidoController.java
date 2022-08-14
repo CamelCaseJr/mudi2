@@ -2,7 +2,9 @@ package br.com.camalCase.mudi.controller;
 
 import br.com.camalCase.mudi.dto.PedidoDto;
 import br.com.camalCase.mudi.model.Pedido;
+import br.com.camalCase.mudi.model.Produto;
 import br.com.camalCase.mudi.service.PedidoService;
+import br.com.camalCase.mudi.service.ProdutoService;
 import com.fasterxml.jackson.databind.util.BeanUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
@@ -22,28 +24,20 @@ import java.util.List;
 @Controller
 @RequestMapping("/home")
 public class PedidoController {
-    private final PedidoService pedidoService;
+    private final ProdutoService produtoService;
 
-    public PedidoController(PedidoService pedidoService) {
-        this.pedidoService = pedidoService;
+    public PedidoController(ProdutoService produtoService) {
+        this.produtoService = produtoService;
     }
 
-    @GetMapping()
-    public ModelAndView home() {
-        List<Pedido> pedidos = pedidoService.findAll();
-        ModelAndView mv = new ModelAndView("home");
-        mv.addObject("pedidos",pedidos);
-        return mv;
+    @GetMapping("/home")
+    public String home(Model model) {
+        List<Produto> produtos = produtoService.findAll();
+        model.addAttribute("produtos", produtos);
+        return "home";
     }
 
-    @GetMapping("/getOne")
-    public ResponseEntity<Object> savePedido(@RequestBody @Valid PedidoDto pedidoDto){
-        var pedidos = new Pedido();
-        BeanUtils.copyProperties(pedidoDto,pedidos);
-        pedidos.setDateTime(LocalDateTime.now(ZoneId.of("UTC")));
-        return ResponseEntity.status(HttpStatus.CREATED).body(pedidoService.save(pedidos));
 
-    }
 
 
 }

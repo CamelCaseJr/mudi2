@@ -20,7 +20,7 @@ public class Pedido {
     @ManyToOne
     @JoinColumn(name = "cliente_id_cliente")
     private Cliente cliente;
-    private LocalDateTime dateTime;
+    private LocalDateTime dateTime = LocalDateTime.now();
     @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
     private List<ItemPedido> itens = new ArrayList<>();
 
