@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:each="pedido : ${pedidos}">
+    <div th:text="${pedido.nome}">Nome do Produto</div>
+    <div>Valor:<span th:text="${pedido.valor}"></span></div>
+    <div>Data da entrega:<span th:text="${pedido.data}"></span></div>
+
+    <div>Descrição</div>
+    <div>
+        <textarea th:text="${pedido.descricao}">descrição do pedido</textarea>
+    </div>
+    <div>
+        <img th:src= "${pedido.urlimagem}" src="">
+    </div>
+
+</div>
+
+</body>
+</html>
