@@ -5,6 +5,7 @@ import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -19,6 +20,7 @@ public class Produto implements Serializable {
     private UUID id;
     private String valor;
     private String nome;
+
     @Lob
     @Column(name = "url_produto", length = 2147483647)
     private String urlProduto;
@@ -26,4 +28,11 @@ public class Produto implements Serializable {
     @Column(name = "url_imagem", length = 2147483647)
     private String urlImagem;
     private String descricao;
+
+    public Produto() {
+    }
+
+    public Produto(LocalDateTime dataEntrega) {
+
+    }
 }
