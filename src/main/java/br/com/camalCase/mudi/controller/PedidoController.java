@@ -1,7 +1,6 @@
 package br.com.camalCase.mudi.controller;
 
 import br.com.camalCase.mudi.dto.ProdutoDto;
-import br.com.camalCase.mudi.model.Pedido;
 import br.com.camalCase.mudi.service.PedidoService;
 import br.com.camalCase.mudi.service.ProdutoService;
 import br.com.camalCase.mudi.util.ClienteHttpUtil;
@@ -27,12 +26,17 @@ public class PedidoController {
 
     @GetMapping("/home")
     public String home(Model model) throws IOException, InterruptedException {
-        String url ="http://localhost:8080/produto/buscarTodos";
+        String url ="http://localhost:8081/produto/buscarTodos";
         String body = ClienteHttpUtil.ConectarAUmHttp(url);
         List<ProdutoDto> produtos = ConversorJsonForProdutoDtoUtil.extratorConteudo(body);
 
         model.addAttribute("produtos", produtos);
         return "home";
+    }
+
+    @GetMapping("/pedidos/formulario")
+    public String formularioPedido () {
+        return "pedido/formulario";
     }
 
 

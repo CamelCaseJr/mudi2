@@ -24,15 +24,15 @@
                 <div class="card-header" th:text="${produto.nome}">Nome do Produto</div>
                 <div class="card body">
                     <div class="row">
-                    <div class="col-12 col-sm-8 mb-3">
-                            <div>Valor:<span th:text="${produto.valor}">"valor"</span></div>
-                            <div> Produto</div>
-                            <div> <input class="form-control" th:value="${produto.urlProduto}" value=" url do produto"  /></div>
-                            <div>Descrição</div>
-                            <div><textarea class="form-control" th:text="${produto.descricao}">descrição do pedido</textarea></div>
-                        </div>
-                        <div class="col-12 col-sm-4">
-                            <div><img class="img-thumbnail" th:src= "${produto.urlImagem}" src=""></div>
+                        <div class="col-12 col-sm-8 mb-3">
+                                <div>Valor:<span th:text="${produto.valor}">"valor"</span></div>
+                                <div> Produto</div>
+                                <div> <input class="form-control" th:value="${produto.urlProduto}" value=" url do produto"  /></div>
+                                <div>Descrição</div>
+                                <div><textarea class="form-control" th:text="${produto.descricao}">descrição do pedido</textarea></div>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <div><img class="img-thumbnail" th:src= "${produto.urlImagem}" src=""></div>
                         </div>
                     </div>
                 </div>
