@@ -15,6 +15,7 @@ public class ConversorJsonForProdutoDtoUtil {
         System.out.println("Convertendo o Json");
         for (Map<String, String> mapProduto: listProduto) {
             ProdutoDto produto = new ProdutoDto();
+            produto.setValor(mapProduto.get("valor"));
             produto.setNome(mapProduto.get("nome"));
             produto.setUrlProduto(mapProduto.get("urlProduto"));
             produto.setDescricao(mapProduto.get("descricao"));
