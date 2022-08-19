@@ -15,8 +15,6 @@ public class ItemPedido {
     @Column(name = "preco_unitario")
     private Double precoUnitario;
 
-    private int quantidade;
-
     @ManyToOne
     private Pedido pedido;
 
@@ -26,8 +24,7 @@ public class ItemPedido {
     public ItemPedido() {
     }
 
-    public ItemPedido(int quantidade, Pedido pedido, Produto produto) {
-        this.quantidade = quantidade;
+    public ItemPedido(Pedido pedido, Produto produto) {
         this.pedido = pedido;
         this.produto = produto;
         this.precoUnitario = Double.parseDouble(produto.getValor());

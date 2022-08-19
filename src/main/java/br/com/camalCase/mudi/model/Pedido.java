@@ -32,6 +32,7 @@ public class Pedido {
     }
 
     public void adicionarItem(ItemPedido item){
+        System.out.println("adicionando o item no pedido");
         item.setPedido(this);
         this.itens.add(item);
     }

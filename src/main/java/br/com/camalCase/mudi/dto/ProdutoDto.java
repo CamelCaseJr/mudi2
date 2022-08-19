@@ -1,6 +1,8 @@
 package br.com.camalCase.mudi.dto;
 
+import br.com.camalCase.mudi.model.Produto;
 import lombok.Data;
+import org.springframework.beans.BeanUtils;
 
 import javax.persistence.Column;
 import javax.persistence.Lob;
@@ -21,7 +23,7 @@ public class ProdutoDto {
     @NotBlank
     @Column(length = 2147483647)
     private String urlImagem;
-    @NotBlank
+
     private String descricao;
 
     public String getValor() {
@@ -62,6 +64,13 @@ public class ProdutoDto {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public Produto toProduto() {
+        System.out.println("Convertendo o produtoDto para Produto");
+        var produto = new Produto();
+        BeanUtils.copyProperties(this,produto);
+        return produto;
     }
 }
 
