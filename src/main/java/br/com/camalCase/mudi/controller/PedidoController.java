@@ -51,7 +51,9 @@ public class PedidoController {
         // caso não tenha preenchido algum campo, retorna para o formulário.
         if (result.hasErrors()){
             return "pedido/formulario";
+
         }
+
         System.out.println("Cadastrando novo pedido");
 
         var produto = produtoDto.toProduto();
