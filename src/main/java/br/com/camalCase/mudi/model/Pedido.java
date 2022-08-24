@@ -20,7 +20,10 @@ public class Pedido {
     @ManyToOne
     @JoinColumn(name = "cliente_id_cliente")
     private Cliente cliente;
-    private LocalDateTime dateTime = LocalDateTime.now();
+    private LocalDate dateTime = LocalDate.now();
+    @Enumerated(EnumType.STRING)
+    private StatusPedido status;
+
     @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
     private List<ItemPedido> itens = new ArrayList<>();
 
@@ -35,5 +38,6 @@ public class Pedido {
         System.out.println("adicionando o item no pedido");
         item.setPedido(this);
         this.itens.add(item);
+        this.setStatus(StatusPedido.AGUARDANDO);
     }
 }

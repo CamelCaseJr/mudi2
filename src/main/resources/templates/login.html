@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head th:replace="~{base :: head}"></head>
+    <body>
+        <div th:replace="~{base :: logo}"></div>
+
+            <div class="container col-12 col-sm-5 ">
+                <div th:replace="~{base :: titulo('Login')}"></div>
+
+                <form th:action="@{/login}" method="post">
+                    <div class="card body form-control col-12 " >
+                        <div class=" row mb-3 col-md-12 ">
+                            <label> User Name :
+                                <input type="text" class="form-control" name="username"/> </label>
+                        </div>
+                        <div class="row mb-3 col-md-12" >
+                            <label> Password:
+                                <input type="password" class="form-control" name="password"/> </label>
+                        </div>
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                        <button type="submit" class="btn btn-primary">Sign In</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+    </body>
+</html>

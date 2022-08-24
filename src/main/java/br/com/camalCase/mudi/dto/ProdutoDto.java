@@ -1,5 +1,6 @@
 package br.com.camalCase.mudi.dto;
 
+import br.com.camalCase.mudi.model.Pedido;
 import br.com.camalCase.mudi.model.Produto;
 import lombok.Data;
 import org.springframework.beans.BeanUtils;
@@ -25,6 +26,8 @@ public class ProdutoDto {
     private String urlImagem;
 
     private String descricao;
+
+    private Pedido pedido;
 
     public String getValor() {
         return valor;
@@ -66,10 +69,19 @@ public class ProdutoDto {
         this.descricao = descricao;
     }
 
+    public Pedido getPedido() {
+        return pedido;
+    }
+
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
+    }
+
     public Produto toProduto() {
         System.out.println("Convertendo o produtoDto para Produto");
         var produto = new Produto();
         BeanUtils.copyProperties(this,produto);
+
         return produto;
     }
 }
