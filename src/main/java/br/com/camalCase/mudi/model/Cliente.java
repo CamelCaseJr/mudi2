@@ -8,17 +8,13 @@ import java.util.UUID;
 
 @Entity
 @Data
-@Table(name = "tb_cliente")
+@Table(name = "users")
 public class Cliente {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id_cliente")
-    private UUID idCliente;
-    private String nome;
+    private String username;
+    private String password;
+    private boolean enabled;
 
-    public Cliente(String nome) {
-        this.nome = nome;
-    }
 
     public Cliente() {
     }
